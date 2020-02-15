@@ -436,9 +436,9 @@ void CreateDriver::publishOdom()
   odom_msg_.pose.pose.orientation = quat;
 
   // Populate velocity info
-  odom_msg_.twist.twist.linear.x = vel.x;
+  odom_msg_.twist.twist.linear.x = vel.x/18;
   odom_msg_.twist.twist.linear.y = vel.y;
-  odom_msg_.twist.twist.angular.z = vel.yaw;
+  odom_msg_.twist.twist.angular.z = vel.yaw/18;
 
   // Update covariances
   odom_msg_.pose.covariance[0] = static_cast<double>(pose.covariance[0]);

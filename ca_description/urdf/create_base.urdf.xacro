@@ -25,13 +25,14 @@
     </collision>
     </link>
 
-   <joint name="${prefix}_wheel_joint" type="continuous">
+   <joint name="${prefix}_wheel_joint" type="fixed">
       <origin xyz="0 ${y_offset} 0.015" rpy="0 0 0" />
       <parent link="base_link" />
       <child link="${prefix}_wheel_link" />
       <axis xyz="0 1 0" />
     </joint>
   </xacro:macro>
+
 
   <xacro:macro name="create_base" params="diffdrive_update_rate:=40 wheel_separation wheel_radius:=0.036 wheel_width:=0.024 wheel_torque:=1.0 wheel_accel:=1.8 mass_kg:=3.5 base_diameter *mesh">
     <xacro:include filename="$(find ca_description)/urdf/create_base_gazebo.urdf.xacro" />
